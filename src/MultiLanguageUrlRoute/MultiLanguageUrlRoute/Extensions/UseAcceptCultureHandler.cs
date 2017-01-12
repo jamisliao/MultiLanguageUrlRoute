@@ -11,11 +11,12 @@ namespace MultiLanguageUrlRoute.Extensions
 {
     public class UseAcceptCultureHandler : DelegatingHandler
     {
-        private List<string> _languageList;
-        private string _defaultLanguage = "en-us";
+        private readonly List<string> _languageList;
+        private string _defaultLanguage;
 
-        public UseAcceptCultureHandler()
+        public UseAcceptCultureHandler(string defaultLanguage)
         {
+            _defaultLanguage = defaultLanguage;
             this._languageList = new List<string>
             {
                 "en","ar","be","ca","cs","da","de","el","es","et","fi","fr",
@@ -32,19 +33,16 @@ namespace MultiLanguageUrlRoute.Extensions
             var tmp = request.RequestUri.Segments[1].Replace("/", "");
             if (tmp.Contains("-") && this._languageList.Contains(tmp.Split('-').First()))
             {
-                lang = tmp.Split('-').First();
-                //request.Headers.Add("Accept-Language", lang ?? _defaultLanguage);
-                HttpContext.Current.Items.Add("Language", lang);
+                HttpContext.Current.Items.Add("Language", tmp);
             }
             else
             {
-                HttpContext.Current.Items.Add("Language", "en");
+                HttpContext.Current.Items.Add("Language", this._languageList);
             }
 
             return base.SendAsync(request, cancellationToken).ContinueWith((task) =>
             {
                 var response = task.Result;
-                //response.Headers.Add("Accept-Language", lang ?? _defaultLanguage);
                 return response;
             }, cancellationToken);
         }
