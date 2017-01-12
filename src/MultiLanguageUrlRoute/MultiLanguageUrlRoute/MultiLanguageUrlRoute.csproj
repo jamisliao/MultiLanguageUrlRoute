@@ -210,7 +210,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Extensions\ApiCultureRoutePrefixProvider .cs" />
+    <Compile Include="Extensions\ApiCultureRouteProvider.cs" />
     <Compile Include="Extensions\MultiCultureConstraint .cs" />
     <Compile Include="Extensions\UseAcceptCultureHandler.cs" />
     <Compile Include="Global.asax.cs">

@@ -13,7 +13,7 @@ namespace MultiLanguageUrlRoute
             // Web API 設定和服務
 
             // Web API 路由
-            config.MapHttpAttributeRoutes(new ApiCultureRoutePrefixProvider());
+            config.MapHttpAttributeRoutes(new ApiCultureRouteProvider());
             config.MessageHandlers.Add(new UseAcceptCultureHandler());
 
             config.Routes.MapHttpRoute(

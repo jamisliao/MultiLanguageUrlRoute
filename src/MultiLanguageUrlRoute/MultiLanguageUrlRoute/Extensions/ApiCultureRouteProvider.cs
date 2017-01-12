@@ -9,7 +9,7 @@ using System.Web.Http.Routing;
 
 namespace MultiLanguageUrlRoute.Extensions
 {
-    public class ApiCultureRoutePrefixProvider : DefaultDirectRouteProvider
+    public class ApiCultureRouteProvider : DefaultDirectRouteProvider
     {
         protected override IReadOnlyList<IDirectRouteFactory> GetActionRouteFactories(HttpActionDescriptor actionDescriptor)
         {
