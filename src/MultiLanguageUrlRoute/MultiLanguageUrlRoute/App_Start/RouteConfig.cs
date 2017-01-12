@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using MultiLanguageUrlRoute.Extensions;
 
 namespace MultiLanguageUrlRoute
 {
@@ -17,7 +18,7 @@ namespace MultiLanguageUrlRoute
                 name: "Language",
                 url: "{lang}/{controller}/{action}/{id}",
                 defaults: new { controller = "Default", action = "Index", id = UrlParameter.Optional },
-                constraints: new { lang = @"jp|en" }
+                constraints: new { lang = new MultiCultureConstraintx() }
             );
 
             routes.MapRoute(
