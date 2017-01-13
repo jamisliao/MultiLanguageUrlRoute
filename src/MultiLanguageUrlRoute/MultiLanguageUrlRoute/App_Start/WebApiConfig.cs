@@ -14,7 +14,7 @@ namespace MultiLanguageUrlRoute
 
             // Web API 路由
             config.MapHttpAttributeRoutes(new ApiCultureRouteProvider());
-            config.MessageHandlers.Add(new UseAcceptCultureHandler("en"));
+            config.MessageHandlers.Add(new UseAcceptCultureHandler("zh-tw"));
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

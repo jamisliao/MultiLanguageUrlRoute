@@ -37,7 +37,7 @@ namespace MultiLanguageUrlRoute.Extensions
             }
             else
             {
-                HttpContext.Current.Items.Add("Language", this._languageList);
+                HttpContext.Current.Items.Add("Language", this._defaultLanguage);
             }
 
             return base.SendAsync(request, cancellationToken).ContinueWith((task) =>

@@ -39,7 +39,7 @@ namespace MultiLanguageUrlRoute.Extensions
                 }
             }
 
-            return new ReadOnlyCollection<IDirectRouteFactory>(actionDirectRouteFactories); ;
+            return actionDirectRouteFactories;
         }
     }
 }
